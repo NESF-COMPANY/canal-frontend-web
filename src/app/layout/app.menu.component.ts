@@ -1,6 +1,8 @@
 import { OnInit } from '@angular/core';
 import { Component } from '@angular/core';
 import { LayoutService } from './service/app.layout.service';
+import {Menu} from "../model/menu";
+import {MenuService} from "../service/menus/menu.service";
 
 @Component({
     selector: 'app-menu',
@@ -9,10 +11,15 @@ import { LayoutService } from './service/app.layout.service';
 export class AppMenuComponent implements OnInit {
 
     model: any[] = [];
+    menus : Menu[] = []
 
-    constructor(public layoutService: LayoutService) { }
+    constructor(
+        public layoutService: LayoutService,
+        public menuservice : MenuService
+    ) { }
 
     ngOnInit() {
+        this. getAllMenu();
         this.model = [
             {
                 label: 'Home',
@@ -21,6 +28,13 @@ export class AppMenuComponent implements OnInit {
                 ]
             },
             {
+                label: 'Prime Blocks',
+                items: [
+                    { label: 'Free Blocks', icon: 'pi pi-fw pi-eye', routerLink: ['/blocks'], badge: 'NEW' },
+                    { label: 'All Blocks', icon: 'pi pi-fw pi-globe', url: ['https://www.primefaces.org/primeblocks-ng'], target: '_blank' },
+                ]
+            },
+    /*        {
                 label: 'UI Components',
                 items: [
                     { label: 'Form Layout', icon: 'pi pi-fw pi-id-card', routerLink: ['/uikit/formlayout'] },
@@ -41,13 +55,7 @@ export class AppMenuComponent implements OnInit {
                     { label: 'Misc', icon: 'pi pi-fw pi-circle', routerLink: ['/uikit/misc'] }
                 ]
             },
-            {
-                label: 'Prime Blocks',
-                items: [
-                    { label: 'Free Blocks', icon: 'pi pi-fw pi-eye', routerLink: ['/blocks'], badge: 'NEW' },
-                    { label: 'All Blocks', icon: 'pi pi-fw pi-globe', url: ['https://www.primefaces.org/primeblocks-ng'], target: '_blank' },
-                ]
-            },
+
             {
                 label: 'Utilities',
                 items: [
@@ -159,7 +167,21 @@ export class AppMenuComponent implements OnInit {
                         label: 'View Source', icon: 'pi pi-fw pi-search', url: ['https://github.com/primefaces/sakai-ng'], target: '_blank'
                     }
                 ]
-            }
+            }*/
         ];
+    }
+
+    getAllMenu(){
+        // @ts-ignore
+     this.menuservice.getMenus().subscribe({
+            next: data => {
+
+                this.menus = data
+                console.log(this.menus)
+            },
+            error: error => {
+                console.log(error)
+            }
+        })
     }
 }
