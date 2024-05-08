@@ -1,0 +1,17 @@
+
+<div>
+    <div class="flex flex-column md:flex-row md:justify-content-between md:align-items-center">
+        <h2 class="m-0">Entreprises</h2>
+    </div>
+
+</div>
+<app-data-table
+    [donnees]="companies"
+    [colonnes]="colonnes"
+    [buttons]="actionButtons"
+    [addButton]="addButton"
+    [configTable]="configTable"
+    titre="Entreprises" labelBouton="Entreprises">
+
+</app-data-table >
+

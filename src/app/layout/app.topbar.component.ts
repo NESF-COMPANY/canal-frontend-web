@@ -9,6 +9,7 @@ import { LayoutService } from "./service/app.layout.service";
 export class AppTopBarComponent {
 
     items!: MenuItem[];
+    name : string = "SERAD"
 
     @ViewChild('menubutton') menuButton!: ElementRef;
 

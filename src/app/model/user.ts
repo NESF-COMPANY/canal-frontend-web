@@ -1,13 +1,11 @@
 export class User {
-    id?: number;
-    username?: string;
-    firstname?: string;
-    lastname?: string;
-    email?: string;
-    genre: string;
-    dateOfBirth?: Date;
-    lastLogin?: Date;
-    address?: string;
-    isAccountNonLocked?: boolean;
+    user_id: number;
+    name: string;
+    email: string;
+    phone: string;
+    company_id: number;
+    user_type_id: number;
+    account_id: number;
+    password: string;
 
 }

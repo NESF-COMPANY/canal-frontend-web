@@ -1,13 +1,16 @@
 import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import {RouterModule, Routes} from '@angular/router';
+import {ListUserComponent} from "./list-user/list-user.component";
+import {CreateUserComponent} from "./create-user/create-user.component";
+
+const routes: Routes = [
+    { path: '', component: ListUserComponent },
+   { path: 'create-user', component: CreateUserComponent },
+    /* { path: 'profile-user', component: ProfileUserComponent },*/
+];
 
 @NgModule({
-    imports: [RouterModule.forChild([
-      /*  { path: 'error', loadChildren: () => import('./error/error.module').then(m => m.ErrorModule) },
-        { path: 'access', loadChildren: () => import('./access/access.module').then(m => m.AccessModule) },
-        { path: 'login', loadChildren: () => import('./login/login.module').then(m => m.LoginModule) },
-        { path: '**', redirectTo: '/notfound' }*/
-    ])],
+    imports: [RouterModule.forChild(routes)],
     exports: [RouterModule]
 })
 export class UserRoutingModule { }

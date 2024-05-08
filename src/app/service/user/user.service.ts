@@ -28,8 +28,8 @@ export class UserService {
     }
 
     // PUT mise à jour d'un utilisateur
-    updateUser(user: User): Observable<User> {
-        const url = `${environment.canalBaseUrl + UPDATE_USER}/${user.id}`;
+    updateUser(user: User, companyId: number, userId: number): Observable<User> {
+        const url = `${environment.canalBaseUrl}/api/${companyId}/users/${userId}`;
         return this.http.put<User>(url, user);
     }
 

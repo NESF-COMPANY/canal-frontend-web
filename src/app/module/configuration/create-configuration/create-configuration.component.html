@@ -1,0 +1,38 @@
+
+<div class=" p-fluid">
+    <form [formGroup]="configurationForm">
+        <div class="row">
+
+                <div class="field">
+                    <label for="label">Label</label>
+                    <input pInputText id="label"  formControlName="label"/>
+                </div>
+                <div class="field">
+                    <label for="key">Key</label>
+                    <input pInputText id="key"  formControlName="key"/>
+
+                </div>
+
+
+            <div class="field">
+                <label class="">Description</label>
+
+                <textarea cols="30" formControlName="description" pInputTextarea
+                          rows="5"></textarea>
+            </div>
+
+        </div>
+
+        <div class="row">
+            <button pButton pRipple label="Annuler" icon="pi pi-times" class="p-button-text" ></button>
+            <button pButton pRipple label="Enregistrer" type="submit" class="p-button-text" icon="pi pi-check" (click)="selectedDataset ? updateGood() : createGood()"  ></button>
+        </div>
+    </form>
+
+</div>
+
+
+
+
+
+

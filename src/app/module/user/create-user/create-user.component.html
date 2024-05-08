@@ -1,0 +1,38 @@
+<div class="p-fluid">
+    <form [formGroup]="userForm">
+        <div class="row">
+            <div class="field">
+                <label for="name">Name</label>
+                <input pInputText id="name" formControlName="name"/>
+            </div>
+            <div class="field">
+                <label for="email">Email</label>
+                <input pInputText id="email" formControlName="email"/>
+            </div>
+            <div class="field">
+                <label for="phone">Phone</label>
+                <input pInputText id="phone" formControlName="phone"/>
+            </div>
+            <div class="field">
+                <label for="company_id">Company ID</label>
+                <input pInputText id="company_id" formControlName="company_id"/>
+            </div>
+            <div class="field">
+                <label for="user_type_id">User Type ID</label>
+                <input pInputText id="user_type_id" formControlName="user_type_id"/>
+            </div>
+            <div class="field">
+                <label for="account_id">Account ID</label>
+                <input pInputText id="account_id" formControlName="account_id"/>
+            </div>
+            <div class="field">
+                <label for="password">Password</label>
+                <input pInputText id="password" formControlName="password"/>
+            </div>
+        </div>
+        <div class="footer d-flex">
+            <button pButton pRipple label="Cancel" icon="pi pi-times" class="p-button-text"></button>
+            <button pButton pRipple label="Save" type="submit" icon="pi pi-check" class="p-button-text"></button>
+        </div>
+    </form>
+</div>

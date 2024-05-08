@@ -1,0 +1,86 @@
+<div class="p-fluid">
+    <form [formGroup]="accountForm">
+        <div class="row d-flex">
+            <div class="field">
+                <label for="firstname">Nom</label>
+                <input pInputText id="firstname" formControlName="firstname"/>
+            </div>
+            <div class="field">
+                <label for="lastname">Prénom</label>
+                <input pInputText id="lastname" formControlName="lastname"/>
+            </div>
+            <div class="field">
+                <label for="email">Email</label>
+                <input pInputText id="email" formControlName="email"/>
+            </div>
+            <div class="field">
+                <label for="birthday">Date de naissance</label>
+                <p-calendar id="birthday" formControlName="birthday"></p-calendar>
+            </div>
+            <div class="field">
+                <label for="place_of_birth">Lieu de naissance</label>
+                <input pInputText id="place_of_birth" formControlName="place_of_birth"/>
+            </div>
+            <div class="field">
+                <label>Genre</label>
+                <p-dropdown
+                    [options]="genders"
+                    formControlName="gender_id"
+                    optionLabel="label"
+                    [filter]="true"
+                    filterBy="label"
+                    [showClear]="true"
+                    placeholder="Sélectionner le genre"
+                >
+                </p-dropdown>
+            </div>
+            <div class="field">
+                <label>Civilité</label>
+                <p-dropdown
+                    [options]="titles"
+                    formControlName="title_id"
+                    optionLabel="label"
+                    [filter]="true"
+                    filterBy="label"
+                    [showClear]="true"
+                    placeholder="Sélectionner la civilité"
+                >
+                </p-dropdown>
+            </div>
+            <div class="field">
+                <label for="address">Adress</label>
+                <input pInputText id="address" formControlName="address"/>
+            </div>
+            <div class="field">
+                <label for="phone">Téléphone</label>
+                <input pInputText id="phone" formControlName="phone"/>
+            </div>
+            <div class="field">
+                <label for="indiq_phone">Indicatif du numéro ( ex.+237 )</label>
+                <input pInputText id="indiq_phone" formControlName="indiq_phone"/>
+            </div>
+            <div class="field">
+                <label for="country">Pays</label>
+                <input pInputText id="country" formControlName="country"/>
+            </div>
+            <div class="field">
+                <label>Type de compte</label>
+                <p-dropdown
+                    [options]="statutAccounts"
+                    formControlName="account_type_id"
+                    optionLabel="label"
+                    [filter]="true"
+                    filterBy="label"
+                    [showClear]="true"
+                    placeholder="Sélectionner le type de compte"
+                >
+                </p-dropdown>
+            </div>
+
+        </div>
+        <div class="footer d-flex">
+            <button pButton pRipple label="Cancel" icon="pi pi-times" class="p-button-text"></button>
+            <button pButton pRipple label="Save" (click)="selectedDataset?update():create()" type="submit" icon="pi pi-check" class="p-button-text"></button>
+        </div>
+    </form>
+</div>

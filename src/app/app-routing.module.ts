@@ -7,18 +7,16 @@ import { AppLayoutComponent } from "./layout/app.layout.component";
     imports: [
         RouterModule.forRoot([
             {
-                path: 'canal', component: AppLayoutComponent,
+                path: '', component: AppLayoutComponent,
                 children: [
-                    { path: 'home', loadChildren: () => import('./demo/components/dashboard/dashboard.module').then(m => m.DashboardModule) },
-                    { path: 'uikit', loadChildren: () => import('./demo/components/uikit/uikit.module').then(m => m.UIkitModule) },
-                    { path: 'utilities', loadChildren: () => import('./demo/components/utilities/utilities.module').then(m => m.UtilitiesModule) },
-                    { path: 'documentation', loadChildren: () => import('./demo/components/documentation/documentation.module').then(m => m.DocumentationModule) },
-                    { path: 'blocks', loadChildren: () => import('./demo/components/primeblocks/primeblocks.module').then(m => m.PrimeBlocksModule) },
-                    { path: 'pages', loadChildren: () => import('./demo/components/pages/pages.module').then(m => m.PagesModule) },
-                    { path: 'users', loadChildren: () => import('./module/user/user.module').then(m => m.UserModule) }
+                    { path: '', loadChildren: () => import('./demo/components/dashboard/dashboard.module').then(m => m.DashboardModule) },
+                    { path: 'users', loadChildren: () => import('./module/user/user.module').then(m => m.UserModule) },
+                    { path: 'accounts', loadChildren: () => import('./module/account/account.module').then(m => m.AccountModule) },
+                    { path: 'configurations', loadChildren: () => import('./module/configuration/configuration.module').then(m => m.ConfigurationModule) },
+                    { path: 'companies', loadChildren: () => import('./module/Company/company.module').then(m => m.CompanyModule) },
                 ]
             },
-            { path: '', loadChildren: () => import('./module/auth/auth.module').then(m => m.AuthModule) },
+            { path: 'auth', loadChildren: () => import('./module/auth/auth.module').then(m => m.AuthModule) },
             { path: 'landing', loadChildren: () => import('./demo/components/landing/landing.module').then(m => m.LandingModule) },
             { path: 'notfound', component: NotfoundComponent },
             { path: '**', redirectTo: '/notfound' },
